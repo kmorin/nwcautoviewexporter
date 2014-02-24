@@ -7,7 +7,7 @@ auto create nwc files on project save
 
 1. Make sure you have Revit 2014 installed.
 2. Make Sure you have a working Navisworks Exporter revit plugin for 2014
-3. Download and run the installer [here](NWCViewExporterInstaller.msi)
+3. Download and run the installer [here](https://github.com/kmorin/nwcautoviewexporter/blob/master/NWCViewExporterInstaller.msi?raw=true)
 
 ## Build from source
 
