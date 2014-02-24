@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Application">
+    <Name>Application NWCViewExporter</Name>
+    <Assembly>.\NWCViewExporter.dll</Assembly>
+    <FullClassName>NWCViewExporter.App</FullClassName>
+    <ClientId>ddff722f-281a-4e32-90df-c70baefa7830</ClientId>
+    <VendorId>KTM</VendorId>
+    <VendorDescription>Kyle T. Morin, http://kylemorin.co/</VendorDescription>
+  </AddIn>
+</RevitAddIns>
