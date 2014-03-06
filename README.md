@@ -12,3 +12,6 @@ auto create nwc files on project save
 ## Build from source
 
 1. You must have the proper folder structure setup before the project will compile correctly. Revit depends too much on the proper .bundle structure.
+
+## Demo Workflow
+View Here [http://youtube.com/watch?v=mTGPYicwNi4]
