@@ -39,7 +39,7 @@
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.Location = new System.Drawing.Point(319, 140);
+            this.btnCancel.Location = new System.Drawing.Point(319, 147);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 0;
@@ -50,7 +50,7 @@
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Location = new System.Drawing.Point(238, 140);
+            this.btnSave.Location = new System.Drawing.Point(238, 147);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 1;
@@ -88,6 +88,7 @@
             // 
             // btnDirectory
             // 
+            this.btnDirectory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDirectory.AutoEllipsis = true;
             this.btnDirectory.Location = new System.Drawing.Point(374, 45);
             this.btnDirectory.Name = "btnDirectory";
@@ -101,7 +102,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(406, 175);
+            this.ClientSize = new System.Drawing.Size(406, 182);
             this.Controls.Add(this.btnDirectory);
             this.Controls.Add(this.lblFolderPath);
             this.Controls.Add(this.label1);

@@ -45,7 +45,8 @@ namespace NWCViewExporter
             pbd_Unsub.LongDescription = "Turns off the automatic NWC file creator.";
 
             PushButton pb_Options = panel.AddItem(pbd_Options) as PushButton;
-            pb_Options.LargeImage = NewBitmapImage("options.png");
+            //pb_Options.LargeImage = NewBitmapImage("options.png");
+            pb_Options.LargeImage = GetEmbeddedImage("NWCViewExporter.options.png");
             pb_Options.ToolTip = "Set Options for Automatic NWC Creation";
             pb_Options.LongDescription = "Sets the view to use for Automatic NWC creation on each save as well as the destination folder to save the NWC file.";
             
@@ -66,6 +67,20 @@ namespace NWCViewExporter
                     ri.Enabled = false;
             }
 
+        }
+
+        static BitmapSource GetEmbeddedImage(string name)
+        {
+            try
+            {
+                System.Reflection.Assembly a = System.Reflection.Assembly.GetExecutingAssembly();
+                Stream s = a.GetManifestResourceStream(name);
+                return BitmapFrame.Create(s);
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         BitmapImage NewBitmapImage(string imgName)
