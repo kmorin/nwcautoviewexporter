@@ -84,6 +84,7 @@ namespace NWCViewExporter
             {
 
                 doc.DocumentSaved += new EventHandler<DocumentSavedEventArgs>(Helpers.OnDocumentSaved);
+                app.DocumentSynchronizedWithCentral += new EventHandler<DocumentSynchronizedWithCentralEventArgs>(Helpers.OnDocumentSynchronized);
 
                 List<RibbonPanel> ribbons = uiapp.GetRibbonPanels();
                 foreach (RibbonPanel p in ribbons)
@@ -118,6 +119,7 @@ namespace NWCViewExporter
             Document doc = uidoc.Document;
 
             doc.DocumentSaved -= new EventHandler<DocumentSavedEventArgs>(Helpers.OnDocumentSaved);
+            app.DocumentSynchronizedWithCentral -= new EventHandler<DocumentSynchronizedWithCentralEventArgs>(Helpers.OnDocumentSynchronized);
 
             List<RibbonPanel> ribbons = uiapp.GetRibbonPanels();
             foreach (RibbonPanel p in ribbons)

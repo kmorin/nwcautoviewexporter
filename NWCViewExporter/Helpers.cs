@@ -190,5 +190,18 @@ namespace NWCViewExporter
                 TaskDialog.Show("Export Options", "You must set your export options before Automatic NWC file creation.");
             }
         }
+
+      internal static void OnDocumentSynchronized(object sender, DocumentSynchronizedWithCentralEventArgs e)
+      {
+        Document doc = e.Document;
+        if (Options.m_neo != null && Options.m_neo.ViewId.ToString() != "-1")
+        {
+          doc.Export(Options._folderExport, Options._NWCFileName, Options.m_neo);
+        }
+        else
+        {
+          TaskDialog.Show("Export Options", "You must set your export options before Automatic NWC file creation.");
+        }
+      }
     }
 }
