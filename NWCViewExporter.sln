@@ -1,7 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Express 2012 for Windows Desktop
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NWCViewExporter", "NWCViewExporter\NWCViewExporter.csproj", "{6CBB3993-3A22-4F97-8455-E8653C3CB092}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NWCViewExporter2015", "NWCViewExporter2015\NWCViewExporter2015.csproj", "{BE2B6708-FB1E-4202-8675-BDB15D7D09E7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,14 +15,22 @@ Global
 		Release2014|Any CPU = Release2014|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6CBB3993-3A22-4F97-8455-E8653C3CB092}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6CBB3993-3A22-4F97-8455-E8653C3CB092}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CBB3993-3A22-4F97-8455-E8653C3CB092}.Debug|Any CPU.ActiveCfg = Debug2014|Any CPU
+		{6CBB3993-3A22-4F97-8455-E8653C3CB092}.Debug|Any CPU.Build.0 = Debug2014|Any CPU
 		{6CBB3993-3A22-4F97-8455-E8653C3CB092}.Debug2014|Any CPU.ActiveCfg = Debug2014|Any CPU
 		{6CBB3993-3A22-4F97-8455-E8653C3CB092}.Debug2014|Any CPU.Build.0 = Debug2014|Any CPU
 		{6CBB3993-3A22-4F97-8455-E8653C3CB092}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6CBB3993-3A22-4F97-8455-E8653C3CB092}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6CBB3993-3A22-4F97-8455-E8653C3CB092}.Release2014|Any CPU.ActiveCfg = Release2014|Any CPU
 		{6CBB3993-3A22-4F97-8455-E8653C3CB092}.Release2014|Any CPU.Build.0 = Release2014|Any CPU
+		{BE2B6708-FB1E-4202-8675-BDB15D7D09E7}.Debug|Any CPU.ActiveCfg = Debug2015|Any CPU
+		{BE2B6708-FB1E-4202-8675-BDB15D7D09E7}.Debug|Any CPU.Build.0 = Debug2015|Any CPU
+		{BE2B6708-FB1E-4202-8675-BDB15D7D09E7}.Debug2014|Any CPU.ActiveCfg = Debug2014|Any CPU
+		{BE2B6708-FB1E-4202-8675-BDB15D7D09E7}.Debug2014|Any CPU.Build.0 = Debug2014|Any CPU
+		{BE2B6708-FB1E-4202-8675-BDB15D7D09E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE2B6708-FB1E-4202-8675-BDB15D7D09E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE2B6708-FB1E-4202-8675-BDB15D7D09E7}.Release2014|Any CPU.ActiveCfg = Release2014|Any CPU
+		{BE2B6708-FB1E-4202-8675-BDB15D7D09E7}.Release2014|Any CPU.Build.0 = Release2014|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
