@@ -1,0 +1,81 @@
+<Workspace Version="0.7.5.3566" X="74.7838139808757" Y="99.5556057584706" zoom="1.130842140625" Description="Exports selected view for NWC" Category="KTM.Navisworks" Name="KTM.Navisworks.NWCExport" ID="0dfd6fd5-0f6b-4804-a288-99314cd0a05d">
+  <Elements>
+    <DSIronPythonNode.PythonNode type="DSIronPythonNode.PythonNode" guid="d5e571cb-6588-4aa7-b8cd-6060bca68fbc" nickname="Python Script" x="250" y="0" isVisible="true" isUpstreamVisible="true" lacing="Disabled" inputcount="4">
+      <Script># Import RevitAPI
+import clr
+clr.AddReference("RevitAPI")
+import Autodesk
+from Autodesk.Revit.DB import *
+
+clr.AddReference("RevitServices")
+import RevitServices
+from RevitServices.Persistence import DocumentManager
+from RevitServices.Transactions import TransactionManager
+# Import ToDSType(bool) extension method
+clr.AddReference("RevitNodes")
+import Revit
+clr.ImportExtensions(Revit.Elements)
+clr.ImportExtensions(Revit.GeometryConversion)
+
+doc = DocumentManager.Instance.CurrentDBDocument
+uiapp = DocumentManager.Instance.CurrentUIApplication
+app = uiapp.Application
+#The inputs to this node will be stored as a list in the IN variable.
+viewExport = IN[0]
+pathExport = IN[1]
+nwcName = IN[2]
+method = IN[3]
+b=""
+
+neo = NavisworksExportOptions()
+neo.ExportScope = NavisworksExportScope.View
+neo.FindMissingMaterials = False
+neo.ViewId = UnwrapElement(viewExport).Id
+
+#Validate name
+if (nwcName &lt; ""):
+	nwcName = doc.Name
+
+#subscribe to save
+def OnDocumentSaved(sender,event_args):
+	d = event_args.Document
+	d.Export(str(pathExport),nwcName,neo)
+	b = str(pathExport) + str("\\") + nwcName + ".nwc"
+
+if (method == 0):
+	doc.DocumentSaved += OnDocumentSaved
+else:
+	app.DocumentSynchronizedWithCentral += OnDocumentSaved
+
+output = b
+doc.DocumentSaved -= OnDocumentSaved
+app.DocumentSynchronizedWithCentral -= OnDocumentSaved
+
+#Assign your output to the OUT variable
+OUT = output</Script>
+    </DSIronPythonNode.PythonNode>
+    <Dynamo.Nodes.Symbol type="Dynamo.Nodes.Symbol" guid="6d219ae0-859b-4450-bd86-0f5357e45544" nickname="Input" x="0" y="0" isVisible="true" isUpstreamVisible="true" lacing="Disabled">
+      <Symbol value="View" />
+    </Dynamo.Nodes.Symbol>
+    <Dynamo.Nodes.Symbol type="Dynamo.Nodes.Symbol" guid="77de6f47-8bcf-478a-a177-a637e430c182" nickname="Input" x="0" y="150" isVisible="true" isUpstreamVisible="true" lacing="Disabled">
+      <Symbol value="Path" />
+    </Dynamo.Nodes.Symbol>
+    <Dynamo.Nodes.Symbol type="Dynamo.Nodes.Symbol" guid="91e4306e-ae1f-4ec5-ac6c-de3b4609c2c6" nickname="Input" x="-2.65289017116214" y="228.371965378623" isVisible="true" isUpstreamVisible="true" lacing="Disabled">
+      <Symbol value="FileName" />
+    </Dynamo.Nodes.Symbol>
+    <Dynamo.Nodes.Output type="Dynamo.Nodes.Output" guid="3b87e1d6-4844-41c9-a66a-f1f630120012" nickname="Output" x="449" y="0" isVisible="true" isUpstreamVisible="true" lacing="Disabled">
+      <Symbol value="OUT" />
+    </Dynamo.Nodes.Output>
+    <Dynamo.Nodes.Symbol type="Dynamo.Nodes.Symbol" guid="ff53e633-55d2-4b99-8df5-71dadad5061e" nickname="Input" x="-3.42048452601694" y="302.747985664747" isVisible="true" isUpstreamVisible="true" lacing="Disabled">
+      <Symbol value="Create on Sync" />
+    </Dynamo.Nodes.Symbol>
+  </Elements>
+  <Connectors>
+    <Dynamo.Models.ConnectorModel start="d5e571cb-6588-4aa7-b8cd-6060bca68fbc" start_index="0" end="3b87e1d6-4844-41c9-a66a-f1f630120012" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="6d219ae0-859b-4450-bd86-0f5357e45544" start_index="0" end="d5e571cb-6588-4aa7-b8cd-6060bca68fbc" end_index="0" portType="0" />
+    <Dynamo.Models.ConnectorModel start="77de6f47-8bcf-478a-a177-a637e430c182" start_index="0" end="d5e571cb-6588-4aa7-b8cd-6060bca68fbc" end_index="1" portType="0" />
+    <Dynamo.Models.ConnectorModel start="91e4306e-ae1f-4ec5-ac6c-de3b4609c2c6" start_index="0" end="d5e571cb-6588-4aa7-b8cd-6060bca68fbc" end_index="2" portType="0" />
+    <Dynamo.Models.ConnectorModel start="ff53e633-55d2-4b99-8df5-71dadad5061e" start_index="0" end="d5e571cb-6588-4aa7-b8cd-6060bca68fbc" end_index="3" portType="0" />
+  </Connectors>
+  <Notes />
+</Workspace>
